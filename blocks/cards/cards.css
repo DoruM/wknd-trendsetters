@@ -1,27 +1,106 @@
+/* Cards Grid Styles */
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
-  grid-gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
 }
 
 .cards > ul > li {
-  border: 1px solid #dadada;
-  background-color: var(--background-color);
-}
-
-.cards .cards-card-body {
-  margin: 16px;
+  background: #f6f6f6;
+  border: 2px solid #232323;
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 260px;
+  box-sizing: border-box;
+  padding: 0;
+  transition: box-shadow 0.13s;
+  box-shadow: none;
 }
 
 .cards .cards-card-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  overflow: hidden;
+  background: #ededed;
+  margin: 0;
+  display: block;
   line-height: 0;
+  flex-shrink: 0;
 }
 
-.cards > ul > li img {
+.cards .cards-card-image img {
   width: 100%;
-  aspect-ratio: 4 / 3;
+  height: 100%;
   object-fit: cover;
+  display: block;
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+}
+
+.cards .cards-card-body {
+  padding: 20px 20px 4px;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  margin: 16px;
+}
+
+.cards .cards-card-body > p:first-child {
+  display: inline-block;
+  background: #ededed;
+  color: #666;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border-radius: 12px;
+  padding: 4px 10px;
+  margin: 0 0 6px;
+  font-family: inherit;
+}
+
+.cards .cards-card-body > h3 {
+  font-family: Quicksand, Montserrat, Poppins, Arial, sans-serif;
+  font-size: 2rem;
+  font-weight: 500;
+  color: #232323;
+  margin: 0 0 10px;
+  line-height: 1.14;
+  letter-spacing: 0.01em;
+  text-transform: none;
+}
+
+.cards .cards-card-body > p:last-child {
+  font-size: 16px;
+  color: #232323;
+  font-weight: 400;
+  line-height: 1.42;
+  margin: 0;
+  font-family: inherit;
+}
+
+.cards > ul > li:hover,
+.cards > ul > li:focus-within {
+  box-shadow: 0 2px 10px 0 rgb(0 0 0 / 2%);
+}
+
+@media (width <= 1100px) {
+  .cards > ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (width <= 700px) {
+  .cards > ul {
+    grid-template-columns: 1fr;
+  }
 }
